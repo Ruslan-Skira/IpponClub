@@ -78,6 +78,8 @@ function TestCalc (output, answer) {
 var checkMyCalk = new TestCalc();
 checkMyCalk.check(myCalk.calculate(5, 3, '-'), 2);
 
+// In prototype
+
 
 
 
