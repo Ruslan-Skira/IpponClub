@@ -1,5 +1,10 @@
 // In prototype form
 
+var firstN = prompt('first argument');
+var secondN = prompt('first argument');
+var operator = prompt('first argument');
+
+console.log(+firstN +operator+ +secondN);// counting not right I am trying understend how it works
 
 function Calculator (arg1, arg2, operator) {
     this._arg1 = arg1;

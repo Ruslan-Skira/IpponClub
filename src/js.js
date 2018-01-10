@@ -1,3 +1,6 @@
+
+
+
 function Calc (arg1,arg2, operator) {
 
     if (operator === '+') {
