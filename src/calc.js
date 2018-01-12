@@ -1,36 +1,35 @@
 // In prototype form
 
-var firstN = prompt('first argument');
-var secondN = prompt('first argument');
-var operator = prompt('first argument');
+//var firstN = +prompt('first argument');
+//var secondN = +prompt('second argument');
+//var operator = prompt('first argument');
 
-console.log(+firstN +operator+ +secondN);// counting not right I am trying understend how it works
+//console.log(firstN +operator+ secondN);// counting not right I am trying understend how it works
 
 function Calculator (arg1, arg2, operator) {
-    this._arg1 = arg1;
-    this._arg2 = arg2;
-    this._operator = operator;
+
 }
 
 Calculator.prototype._calculate = function () {
-    if (this._operator === '+') {
-        return( this._arg1 + this._arg2 );
+    alert (arg1, arg2, operator);
+    if (operator === '+') {
+        return( arg1 + arg2 );
     }
-    else if (this._operator == '-' ) {
-        return(this._arg1 - this._arg2);
+    else if (operator == '-' ) {
+        return(arg1 - arg2);
     }
-    else if ( this._operator == '*') {
-        return(this._arg1 * this._arg2);
+    else if ( operator == '*') {
+        return(arg1 * arg2);
     }
-    else if (this._operator == '/') {
-        return(this._arg1 /this._arg2);
+    else if (operator == '/') {
+        return(arg1 / arg2);
     }
     else {
         console.log('DIch?')
     };
 };
-var myCalc1 = new Calculator(4, 9, '+');
-myCalc1._calculate();
+var myCalc1 = new Calculator();
+myCalc1._calculate(6, 2, '+');
 
 
 //Unit test
