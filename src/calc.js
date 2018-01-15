@@ -24,7 +24,7 @@ Calculator.prototype.calculate = function (arg1, arg2, operator) {
         return(arg1 / arg2);
     }
     else {
-        console.log('DIch?')
+        console.log('DIch?');
     };
 };
 var myCalc = new Calculator();
@@ -44,16 +44,21 @@ console.log(answer2);
 function TestCalc () {
 
 };
-TestCalc.prototype.check = function (output, answer) {
-    if (output === answer) {
+TestCalc.prototype.equals = function (output, answer, wrongAnsw) {
+    if (output === answer) { // undefinde output and answer
         console.log('OK');
     } else {
-        console.log('dich prodolgaetsa?');
+        console.log(wrongAnsw);
     };
 };
 
-var checkMyCalc1 = new TestCalc(myCalc1.calculate(), 13 );
-checkMyCalc1.check();
+const test = new TestCalc();
+const calcForTest = new Calculator();
+test.equals();
+
+
+
+//checkMyCalc1.check(myCalc1.calculate(), 13, 'Calculate wrong addition' );
 //myCalc1.calculate(4, 5, '+')
 
 
