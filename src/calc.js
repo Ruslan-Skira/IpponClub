@@ -6,14 +6,13 @@
 
 //console.log(firstN +operator+ secondN);// counting not right I am trying understend how it works
 
-function Calculator (arg1, arg2, operator) {
+function Calculator () {
 
 }
 
-Calculator.prototype._calculate = function () {
-    alert (arg1, arg2, operator);
+Calculator.prototype.calculate = function (arg1, arg2, operator) {
     if (operator === '+') {
-        return( arg1 + arg2 );
+        console.log( arg1 + arg2 );
     }
     else if (operator == '-' ) {
         return(arg1 - arg2);
@@ -28,24 +27,32 @@ Calculator.prototype._calculate = function () {
         console.log('DIch?')
     };
 };
-var myCalc1 = new Calculator();
-myCalc1._calculate(6, 2, '+');
+var myCalc = new Calculator();
+const answer = myCalc.calculate(6, 2, '+');
+console.log(answer);
+
+
+const answer2 = myCalc.calculate(3, 2,'/');
+console.log(answer2);
+
+
+
 
 
 //Unit test
-function TestCalc ( output, answer ) {
-    this._output = output;
-    this._answer = answer;
+
+function TestCalc () {
+
 };
-TestCalc.prototype.check = function () {
-    if (this._output === this._answer) {
+TestCalc.prototype.check = function (output, answer) {
+    if (output === answer) {
         console.log('OK');
     } else {
         console.log('dich prodolgaetsa?');
     };
 };
 
-var checkMyCalc1 = new TestCalc(myCalc1._calculate(), 13 );
+var checkMyCalc1 = new TestCalc(myCalc1.calculate(), 13 );
 checkMyCalc1.check();
 //myCalc1.calculate(4, 5, '+')
 
