@@ -12,7 +12,7 @@ function Calculator () {
 
 Calculator.prototype.calculate = function (arg1, arg2, operator) {
     if (operator === '+') {
-        console.log( arg1 + arg2 );
+        return( arg1 + arg2 );
     }
     else if (operator == '-' ) {
         return(arg1 - arg2);
@@ -41,20 +41,20 @@ console.log(answer2);
 
 //Unit test
 
-function TestCalc () {
+function TestCalc () {};
 
-};
 TestCalc.prototype.equals = function (output, answer, wrongAnsw) {
-    if (output === answer) { // undefinde output and answer
+    if (output === answer) {
         console.log('OK');
     } else {
         console.log(wrongAnsw);
     };
 };
-
-const test = new TestCalc();
 const calcForTest = new Calculator();
-test.equals();
+const test = new TestCalc();
+const testCalc1 = test.equals(calcForTest.calculate(5, 3, '-'), 2, 'hoho');
+
+console.log(testCalc1); //why it is undefined
 
 
 
