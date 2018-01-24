@@ -1,6 +1,11 @@
 class Calculator {
     constructor(){}
 
+    splitArg(arg){
+        var splited = arg.split('');
+        return this.calculate(splited);
+    }
+
     calculate(arg1, arg2, operator) {
         if (operator === '+') {
             return( arg1 + arg2 );
@@ -22,8 +27,8 @@ class Calculator {
 
 const counting = new Calculator();
 
-console.log(counting.calculate(1,2,'+'));
-console.log(counting.calculate(10,5,'/'));
+console.log(counting.splitArg('12+'));
+//console.log(counting.calculate(10,5,'/'));
 //Unit test
 
 function TestCalc () {};
@@ -35,7 +40,7 @@ TestCalc.prototype.equals = function (output, answer, wrongAnsw) {
         console.log(wrongAnsw);
     };
 };
-const calcForTest = new Calculator();
+const calcForTest = new Calculator()
 const test = new TestCalc();
 const testCalc1 = test.equals(calcForTest.calculate(5, 3, '-'), 2, 'hoho');
 
