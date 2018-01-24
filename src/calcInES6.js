@@ -1,9 +1,39 @@
 class Calculator {
-    constructor(){}
+    constructor(arg1){
+        this.arg1 = arg1;
+    }
 
     splitArg(arg){
         var splited = arg.split('');
-        return this.calculate(splited);
+
+
+            if(splited[2] == '+'){
+                splited[0] = this.arg1;
+                splited[1] = arg2;
+                splited[2] = operator;
+            }
+            else if(splited[2] == '-'){
+                splited[0] = arg1;
+                splited[1] = arg2;
+                splited[2] = operator;
+            }
+            else if(splited[2] == '/'){
+                splited[0] = arg1;
+                splited[1] = arg2;
+                splited[2] = operator;
+            }
+            else if(splited[2] == '*'){
+                splited[0] = arg1;
+                splited[1] = arg2;
+                splited[2] = operator;
+            }
+            else {
+                console.log('wtf');
+            }
+
+            //return this.calculate(arg1, arg2, operator);
+
+
     }
 
     calculate(arg1, arg2, operator) {
