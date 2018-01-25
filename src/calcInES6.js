@@ -1,6 +1,8 @@
 class Calculator {
-    constructor(arg1){
+    constructor(){
         this.arg1 = arg1;
+        this.arg2 = arg2;
+        this.operator = arg1;
     }
 
     splitArg(arg){
@@ -9,8 +11,8 @@ class Calculator {
 
             if(splited[2] == '+'){
                 splited[0] = this.arg1;
-                splited[1] = arg2;
-                splited[2] = operator;
+                splited[1] = this.arg2;
+                splited[2] = this.operator;
             }
             else if(splited[2] == '-'){
                 splited[0] = arg1;
@@ -31,7 +33,7 @@ class Calculator {
                 console.log('wtf');
             }
 
-            //return this.calculate(arg1, arg2, operator);
+            return this.calculate(this.arg1, this.arg2, this.operator);
 
     }
 
