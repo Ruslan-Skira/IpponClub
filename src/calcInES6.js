@@ -33,7 +33,6 @@ class Calculator {
 
             //return this.calculate(arg1, arg2, operator);
 
-
     }
 
     calculate(arg1, arg2, operator) {
