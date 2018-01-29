@@ -24,7 +24,8 @@ class Calculator {
 const counting = new Calculator();
 
 
-//console.log(counting.calculate(10,5,'/'));
+console.log(counting.calculate(10,5,'/'));
+
 //Unit test
 
 function TestCalc () {};
