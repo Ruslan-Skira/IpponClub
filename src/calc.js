@@ -26,14 +26,23 @@ const counting = new Calculator();
 
 
 console.log(counting.calculate(10,5,'/'));
+
+var indexCalculator={};
 var str = prompt('fill up 1+2');
 var ind = str.indexOf('+');
 console.log(ind);
+var operators = " '+', '-', '/', '+' ";
 
-if(str[i] = '-'){
-
-
+if(str[ind] = operators[1]){
+    indexCalculator.arg1 = str[ind-1];
+    indexCalculator.arg2 = str[ind+1];
+    indexCalculator.operator = str[ind];
 }
+else {
+    console.log('in progress');
+}
+alert(indexCalculator.operator);
+
 
 
 
