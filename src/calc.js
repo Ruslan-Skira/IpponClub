@@ -1,5 +1,6 @@
 class Calculator {
-    constructor(){}
+    constructor(){};
+
 
 
     calculate(arg1, arg2, operator) {
@@ -25,6 +26,20 @@ const counting = new Calculator();
 
 
 console.log(counting.calculate(10,5,'/'));
+var str = prompt('fill up 1+2');
+var ind = str.indexOf('+');
+console.log(ind);
+
+if(str[i] = '-'){
+
+
+}
+
+
+
+
+
+
 
 //Unit test
 
