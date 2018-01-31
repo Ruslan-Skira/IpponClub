@@ -29,19 +29,23 @@ console.log(counting.calculate(10,5,'/'));
 
 var indexCalculator={};
 var str = prompt('fill up 1+2');
-var ind = str.indexOf('+');
-console.log(ind);
-var operators = " '+', '-', '/', '+' ";
 
-if(str[ind] = operators[1]){
-    indexCalculator.arg1 = str[ind-1];
-    indexCalculator.arg2 = str[ind+1];
-    indexCalculator.operator = str[ind];
+var operators = " '+', '-', '/', '+' ";
+for(var i = 0; i<operators.length; i++){
+    var ind = str.indexOf(operators[i]);
+
+    if(str[ind]){
+        indexCalculator.arg1 = str[ind-1];
+        indexCalculator.arg2 = str[ind+1];
+        indexCalculator.operator = str[ind];
+    }
+    else {
+        console.log('in progress');
+    }
 }
-else {
-    console.log('in progress');
-}
-alert(indexCalculator.operator);
+    alert(indexCalculator.operator);
+
+
 
 
 
