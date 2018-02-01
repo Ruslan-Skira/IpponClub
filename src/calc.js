@@ -30,7 +30,7 @@ console.log(counting.calculate(10,5,'/'));
 var indexCalculator={};
 var str = prompt('fill up 1+2');
 
-var operators = " '+', '-', '/', '+' ";
+var operators = " '+', '-', '/', '*' ";
 for(var i = 0; i<operators.length; i++){
     var ind = str.indexOf(operators[i]);
 
