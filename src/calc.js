@@ -2,14 +2,11 @@ class Calculator {
     constructor(){
         this.operators = ['+', '-', '/', '*']; //create array as class property on init this.operators: ['+','-','/','*']
         this.numbers = //hz;
-        this.
-
-
     };
 
 
     calculate(arg1, arg2, operator) {
-        for(var i = 0; i<operators.length; i++){ // make this as method of class Calculator to be able to use it inside
+        for(var i = 0; i < operators.length; i++){ // make this as method of class Calculator to be able to use it inside
             var ind = str.indexOf(operators[i]);
 
             if(str[ind]){   //check if this.operators.indexOf(str[i]);
