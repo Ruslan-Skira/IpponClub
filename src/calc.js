@@ -7,10 +7,11 @@ class Calculator {
 
     calculate() {
         for(var i = 0; i < this.operators.length; i++){ // make this as method of class Calculator to be able to use it inside
-            var ind = str.indexOf(this.operators[i]);
+            var arr = this.operators[i];
+            var ind = str.indexOf(arr);
 
             if(str[ind]){   //check if this.operators.indexOf(str[i]);
-              console.log('I am done');
+
             }
             else { // else - this is not operator. So add it to the numbers array. this.numbers...
                 this.numbers.push(str[i]);
@@ -23,6 +24,9 @@ const counting = new Calculator();
 
 var str = prompt('fill up 1+2');
 console.log(counting.calculate());
+console.log(counting.numbers[1]);
+console.log(counting.numbers[2]);
+console.log(counting.numbers[3]);
 
 
 
