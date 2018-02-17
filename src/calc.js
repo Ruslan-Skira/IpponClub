@@ -10,7 +10,10 @@ class Calculator {
             var arr = this.operators[i];
             var ind = str.indexOf(arr);
 
-            if(str[ind]){   //check if this.operators.indexOf(str[i]);
+            if(str[ind] == '+'){   //check if this.operators.indexOf(str[i]);
+                var answer = +str[ind-1] + +str[ind+1];
+                console.log(answer);
+
 
             }
             else { // else - this is not operator. So add it to the numbers array. this.numbers...
@@ -24,9 +27,9 @@ const counting = new Calculator();
 
 var str = prompt('fill up 1+2');
 console.log(counting.calculate());
-console.log(counting.numbers[1]);
-console.log(counting.numbers[2]);
-console.log(counting.numbers[3]);
+//console.log(counting.numbers[1]);
+//console.log(counting.numbers[2]);
+//console.log(counting.numbers[3]);
 
 
 
