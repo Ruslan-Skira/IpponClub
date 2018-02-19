@@ -1,22 +1,22 @@
 class Calculator {
     constructor(){
-        this.operators = ['+', '-', '/', '*']; //create array as class property on init this.operators: ['+','-','/','*']
+        this.operators = ['+', '-', '/', '*'];
         this.numbers = [];//hz;
     };
 
 
     calculate() {
-        for(var i = 0; i < this.operators.length; i++){ // make this as method of class Calculator to be able to use it inside
+        for(var i = 0; i < this.operators.length; i++){
             var arr = this.operators[i];
             var ind = str.indexOf(arr);
 
-            if(str[ind] == '+'){   //check if this.operators.indexOf(str[i]);
+            if(str[ind] == '+'){
                 var answer = +str[ind-1] + +str[ind+1];
                 console.log(answer);
 
 
             }
-            else { // else - this is not operator. So add it to the numbers array. this.numbers...
+            else {
                 this.numbers.push(str[i]);
             }
         }
