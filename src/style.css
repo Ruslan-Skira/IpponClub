@@ -4,3 +4,6 @@ body {
     font-size: 14px;
     line-height: 1.4;
 }
+.b1 {
+    border: 2px dashed red;
+}

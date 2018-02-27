@@ -10,8 +10,10 @@ class Calculator {
             var arr = this.operators[i];
             var ind = str.indexOf(arr);
 
-            if(str[ind] == '+'){
-                var answer = +str[ind-1] + +str[ind+1];
+            if(str[ind] === '+'){
+                var first = this.numbers.push(str[ind-1]);
+                var second = this.numbers.push(str[ind+1]);
+                var answer = +first + +second;
                 console.log(answer);
 
 
