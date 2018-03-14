@@ -1,53 +1,100 @@
 class Calculator {
     constructor(){
-        this.operators = ['+', '-', '/', '*'];
-        this.numbers = [];//hz;
+        this.operatorsList = ['+', '-', '*', '/'];
+        this.parsed = {
+          operators: [],
+          operands: [],
+        }
+        this.currentOperand = '';
+        this.result = null;
     };
 
-
-    calculate() {
-        for(var i = 0; i < this.operators.length; i++){
-            var arr = this.operators[i];
-            var ind = str.indexOf(arr);
-
-            if(str[ind] === '+'){
-                var first = this.numbers.push(str[ind-1]);
-                var second = this.numbers.push(str[ind+1]);
-                var answer = +first + +second;
-                console.log(answer);
-
-
-            }
-            else {
-                this.numbers.push(str[i]);
-            }
+    parsingInput (string) {
+      for(let i = 0; i < string.length; i++){
+        const currentCharacter = string[i];
+        if(this.isCharacterNumber(currentCharacter)) { // TODO: write function "isCharacterNumber" to parse number from the string considering decimal
+          this.currentOperand += currentCharacter;
+        } else if (this.currentOperand) {
+          this.parsed.operands.push(this.currentOperand);
+          this.currentOperand = '';
+        } 
+        if (this.isCharacterOperator(currentCharacter)) {
+          this.parsed.operators.push(currentCharacter);
+          this.calculateAvailable();  // TODO: make proper calculation
+        } else if (i + 1 === string.length){ // Last character in the string
+          this.parsed.operands.push(this.currentOperand);
+          this.currentOperand = '';
+          this.calculateAvailable();
+          // TODO: Show error
         }
+      }
+    }
+
+    calculate (string) {
+        this.parsingInput(string);
+        return this.parsed.operands.pop();
+    };
+
+    runCalculation (arg2, arg1, operator) {
+      if (operator === this.operatorsList[0]) {
+          return arg1 + arg2;
+      }
+      else if (operator === this.operatorsList[1]) {
+          return arg1 - arg2;
+      }
+      else if (operator == this.operatorsList[2]) {
+          return arg1 * arg2;
+      }
+      else if (operator == this.operatorsList[3]) {
+          return arg1 / arg2;
+      }
+
+      // ToDo: call function for each operator. Descride this function in operators array for each operator - this.operatorsList[operator].run(...args)
+      else {
+          console.log('try to treat me?');
+      }
+    }
+
+    isCharacterNumber (char) {
+      return char === '.' || '0123456789'.indexOf(char) !== -1;
+    }
+
+    isCharacterOperator(char) {
+      return this.operatorsList.indexOf(char) !== -1;
+    }
+
+    calculateAvailable () {
+      if (this.parsed.operators.length && this.parsed.operands.length > 1) {
+        const result = this.runCalculation(+this.parsed.operands.pop(), +this.parsed.operands.pop(), this.parsed.operators.pop());
+        this.parsed.operands.push(result);
+      }
     }
 }
 
-const counting = new Calculator();
+const calculator = new Calculator();
 
-var str = prompt('fill up 1+2');
-console.log(counting.calculate());
-//console.log(counting.numbers[1]);
-//console.log(counting.numbers[2]);
-//console.log(counting.numbers[3]);
+
+console.log(calculator.calculate('3 + 4'));
 
 
 
 //Unit test
 
-/*function TestCalc () {};
+function TestCalc () {};
 
-TestCalc.prototype.equals = function (output, answer, wrongAnsw) {
-    if (output === answer) {
-        console.log('OK');
+TestCalc.prototype.equals = function (result, expected, description) {
+    if (result === expected) {
+        console.log('passed - ' + description);
     } else {
-        console.log(wrongAnsw);
+        console.log('FAILED - ' + description + ' - result = ' + result + ', expect = ' + expected);
     };
 };
 const calcForTest = new Calculator();
 const test = new TestCalc();
-const testCalc1 = test.equals(calcForTest.calculate(5, 3, '-'), 2, 'hoho');
-
-console.log(testCalc1); //why it is undefined*/
+test.equals(calcForTest.calculate('13 + 4'), 17, 'Sum integers');
+test.equals(calcForTest.calculate('13 - 23'), -10, 'Subtract integers');
+test.equals(calcForTest.calculate('10 * 4'), 40, 'Multiply integers');
+test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
+test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
+test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
+test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Divide decimals');
