@@ -78,7 +78,7 @@ console.log(calculator.calculate('3 + 4'));
 
 
 
-//Unit test
+// *** Tests ***
 
 function TestCalc () {};
 
@@ -98,3 +98,31 @@ test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
 test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
 test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
 test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Divide decimals');
+
+
+// *** Unit tests ***
+
+const calcForUnitTests = new Calculator();
+// Test function isCharacterNumber
+test.equals(calcForUnitTests.isCharacterNumber('3'), true, 'Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('0'), true, 'Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('.'), true, 'Is part of the number');
+
+test.equals(calcForUnitTests.isCharacterNumber('+'), false, 'Is part of the number');
+test.equals(calcForUnitTests.isCharacterNumber('a'), false, 'Is part of the number');
+
+//Test function isCharacterOperator
+test.equals(calcForUnitTests.isCharacterOperator('+'), true, '+ is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('-'), true, '- is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('*'), true, '* is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('/'), true, '/ is one of the operators');
+
+test.equals(calcForUnitTests.isCharacterOperator('3'), false, '3 is not an operator');
+test.equals(calcForUnitTests.isCharacterOperator('0'), false, '0 is not an operator');
+test.equals(calcForUnitTests.isCharacterOperator('m'), false, 'm is not an operator');
+
+//Test function runCalculation
+test.equals(calcForUnitTests.runCalculation(2, 14, '/'), 7, 'Check runCalculation for divide');
+// TODO: finish testing runCalculation
+
+// *** End Unit tests ***
