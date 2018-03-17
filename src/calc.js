@@ -97,7 +97,7 @@ test.equals(calcForTest.calculate('10 * 4'), 40, 'Multiply integers');
 test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
 test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
 test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
-test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Divide decimals');
+test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
 
 
 // *** Unit tests ***
