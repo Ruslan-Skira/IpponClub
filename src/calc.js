@@ -1,6 +1,6 @@
 class Calculator {
     constructor(){
-        this.operatorsList = ['+', '-', '*', '/'];
+        this.operatorsList = ['+', '-', '/', '*'];
         this.parsed = {
           operators: [],
           operands: [],
@@ -42,14 +42,14 @@ class Calculator {
       else if (operator === this.operatorsList[1]) {
           return arg1 - arg2;
       }
-      else if (operator == this.operatorsList[2]) {
-          return arg1 * arg2;
-      }
-      else if (operator == this.operatorsList[3]) {
+      else if (operator === this.operatorsList[2]) {
           return arg1 / arg2;
       }
+      else if (operator === this.operatorsList[3]) {
+          return arg1 * arg2;
+      }
 
-      // ToDo: call function for each operator. Descride this function in operators array for each operator - this.operatorsList[operator].run(...args)
+      // ToDo: call function for each operator. Describe this function in operators array for each operator - this.operatorsList[operator].run(...args)
       else {
           console.log('try to treat me?');
       }
@@ -74,7 +74,7 @@ class Calculator {
 const calculator = new Calculator();
 
 
-console.log(calculator.calculate('3 + 4'));
+console.log(calculator.calculate('3 + 4 + 7'));
 
 
 
@@ -97,4 +97,4 @@ test.equals(calcForTest.calculate('10 * 4'), 40, 'Multiply integers');
 test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
 test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
 test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
-test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Divide decimals');
+test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
