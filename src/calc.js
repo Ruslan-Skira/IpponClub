@@ -37,16 +37,20 @@ class Calculator {
 
     runCalculation (arg2, arg1, operator) {
       if (operator === this.operatorsList[0]) {
-          return arg1 + arg2;
+          let plus = arg1 + arg2;
+          return plus.toFixed(0);
       }
       else if (operator === this.operatorsList[1]) {
-          return arg1 - arg2;
+          let minus = arg1 - arg2;
+          return minus.toFixed(0);
       }
       else if (operator === this.operatorsList[2]) {
-          return arg1 / arg2;
+          let divide = arg1 / arg2;
+          return divide.toFixed(0);
       }
       else if (operator === this.operatorsList[3]) {
-          return arg1 * arg2;
+          let multiply = arg1 * arg2;
+          return multiply.toFixed(2);
       }
 
       // ToDo: call function for each operator. Describe this function in operators array for each operator - this.operatorsList[operator].run(...args)
@@ -74,7 +78,7 @@ class Calculator {
 const calculator = new Calculator();
 
 
-console.log(calculator.calculate('3 + 4 + 7'));
+console.log(calculator.calculate('3 + 4'));
 
 
 
