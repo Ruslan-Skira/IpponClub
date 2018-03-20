@@ -1,6 +1,6 @@
 class Calculator {
     constructor(){
-        this.operatorsList = ['+', '-', '/', '*'];
+        this.operatorsList = ['+', '-', '*', '/'];
         this.parsed = {
           operators: [],
           operands: [],
@@ -37,23 +37,19 @@ class Calculator {
 
     runCalculation (arg2, arg1, operator) {
       if (operator === this.operatorsList[0]) {
-          let plus = arg1 + arg2;
-          return plus.toFixed(0);
+          return arg1 + arg2;
       }
       else if (operator === this.operatorsList[1]) {
-          let minus = arg1 - arg2;
-          return minus.toFixed(0);
+          return arg1 - arg2;
       }
-      else if (operator === this.operatorsList[2]) {
-          let divide = arg1 / arg2;
-          return divide.toFixed(0);
+      else if (operator == this.operatorsList[2]) {
+          return arg1 * arg2;
       }
-      else if (operator === this.operatorsList[3]) {
-          let multiply = arg1 * arg2;
-          return multiply.toFixed(2);
+      else if (operator == this.operatorsList[3]) {
+          return arg1 / arg2;
       }
 
-      // ToDo: call function for each operator. Describe this function in operators array for each operator - this.operatorsList[operator].run(...args)
+      // ToDo: call function for each operator. Descride this function in operators array for each operator - this.operatorsList[operator].run(...args)
       else {
           console.log('try to treat me?');
       }
@@ -82,7 +78,7 @@ console.log(calculator.calculate('3 + 4'));
 
 
 
-//Unit test
+// *** Tests ***
 
 function TestCalc () {};
 
@@ -102,3 +98,31 @@ test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
 test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
 test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
 test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
+
+
+// *** Unit tests ***
+
+const calcForUnitTests = new Calculator();
+// Test function isCharacterNumber
+test.equals(calcForUnitTests.isCharacterNumber('3'), true, 'Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('0'), true, 'Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('.'), true, 'Is part of the number');
+
+test.equals(calcForUnitTests.isCharacterNumber('+'), false, 'Is part of the number');
+test.equals(calcForUnitTests.isCharacterNumber('a'), false, 'Is part of the number');
+
+//Test function isCharacterOperator
+test.equals(calcForUnitTests.isCharacterOperator('+'), true, '+ is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('-'), true, '- is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('*'), true, '* is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('/'), true, '/ is one of the operators');
+
+test.equals(calcForUnitTests.isCharacterOperator('3'), false, '3 is not an operator');
+test.equals(calcForUnitTests.isCharacterOperator('0'), false, '0 is not an operator');
+test.equals(calcForUnitTests.isCharacterOperator('m'), false, 'm is not an operator');
+
+//Test function runCalculation
+test.equals(calcForUnitTests.runCalculation(2, 14, '/'), 7, 'Check runCalculation for divide');
+// TODO: finish testing runCalculation
+
+// *** End Unit tests ***
