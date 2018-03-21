@@ -74,7 +74,7 @@ class Calculator {
 const calculator = new Calculator();
 
 
-console.log(calculator.calculate('3 + 4'));
+console.log(calculator.calculate('3 + 4 + 3'));
 
 
 
@@ -98,6 +98,7 @@ test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
 test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
 test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
 test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
+test.equals(calcForTest.calculate('1 + 2 + 3'), 6, '3 operands in line');
 
 
 // *** Unit tests ***

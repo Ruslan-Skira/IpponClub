@@ -2,8 +2,8 @@ class Calculator {
     constructor() {
         this.operatorsList = ['+', '-', '/', '*'];
         this.operands = {
-            this.currentOperand = [],
-            this.currentOperator = [],
+            this.currentOperands = [],
+            this.currentOperators = [],
         }
 
     }
