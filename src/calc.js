@@ -125,6 +125,7 @@ test.equals(calcForUnitTests.isCharacterOperator('m'), false, 'm is not an opera
 
 //Test function runCalculation
 test.equals(calcForUnitTests.runCalculation(2, 14, '/'), 7, 'Check runCalculation for divide');
+
 // TODO: finish testing runCalculation
 
 // *** End Unit tests ***
