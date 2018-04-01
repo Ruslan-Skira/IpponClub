@@ -6,7 +6,6 @@ class Calculator {
           operands: [],
         }
         this.currentOperand = '';
-        this.result = null;
     };
 
     parsingInput (string) {
@@ -26,7 +25,7 @@ class Calculator {
           this.currentOperand = '';
           this.calculateAvailable();
           // TODO: Show error
-        }
+        } else {console.log('Errorchick')};
       }
     }
 
@@ -42,14 +41,14 @@ class Calculator {
       else if (operator === this.operatorsList[1]) {
           return arg1 - arg2;
       }
-      else if (operator == this.operatorsList[2]) {
+      else if (operator === this.operatorsList[2]) {
           return arg1 * arg2;
       }
-      else if (operator == this.operatorsList[3]) {
+      else if (operator === this.operatorsList[3]) {
           return arg1 / arg2;
       }
 
-      // ToDo: call function for each operator. Descride this function in operators array for each operator - this.operatorsList[operator].run(...args)
+      // ToDo: call function for each operator. Describe this function in operators array for each operator - this.operatorsList[operator].run(...args)
       else {
           console.log('try to treat me?');
       }
@@ -100,6 +99,7 @@ test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
 test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
 test.equals(calcForTest.calculate('1 + 2 + 3'), 6, '3 operands in line');
 test.equals(calcForTest.calculate('2 + 2 * 2'), 6, 'procedure of calculating');
+test.equals(calcForTest.calculate('2 * 2 + 2'), 6, 'procedure of calculating * is first');
 
 
 // *** Unit tests ***
