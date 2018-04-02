@@ -34,7 +34,7 @@ class Calculator {
         return this.parsed.operands.pop();
     };
 
-    runCalculation (arg2, arg1, operator) {
+    runCalculation (arg1, arg2, operator) {
       if (operator === this.operatorsList[0]) {
           return arg1 + arg2;
       }
@@ -64,7 +64,7 @@ class Calculator {
 
     calculateAvailable () {
       if (this.parsed.operators.length && this.parsed.operands.length > 1) {
-        const result = this.runCalculation(+this.parsed.operands.pop(), +this.parsed.operands.pop(), this.parsed.operators.pop());
+        const result = this.runCalculation(+this.parsed.operands.shift(), +this.parsed.operands.shift(), this.parsed.operators.shift());
         this.parsed.operands.push(result);
       }
     }
@@ -91,36 +91,36 @@ TestCalc.prototype.equals = function (result, expected, description) {
 };
 const calcForTest = new Calculator();
 const test = new TestCalc();
-test.equals(calcForTest.calculate('13 + 4'), 17, 'Sum integers');
-test.equals(calcForTest.calculate('13 - 23'), -10, 'Subtract integers');
-test.equals(calcForTest.calculate('10 * 4'), 40, 'Multiply integers');
-test.equals(calcForTest.calculate('24 / 12'), 2, 'Divide integers');
-test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, 'Sum for decimals');
-test.equals(calcForTest.calculate('22.5 / 1.5'), 15, 'Divide decimals');
-test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, 'Multiply decimals');
-test.equals(calcForTest.calculate('1 + 2 + 3'), 6, '3 operands in line');
-test.equals(calcForTest.calculate('2 + 2 * 2'), 6, 'procedure of calculating');
-test.equals(calcForTest.calculate('2 * 2 + 2'), 6, 'procedure of calculating * is first');
+test.equals(calcForTest.calculate('13 + 4'), 17, '1 Sum integers');
+test.equals(calcForTest.calculate('13 - 23'), -10, '2 Subtract integers');
+test.equals(calcForTest.calculate('10 * 4'), 40, '3 Multiply integers');
+test.equals(calcForTest.calculate('24 / 12'), 2, '4 Divide integers');
+test.equals(calcForTest.calculate('3.1 + 4.2'), 7.3, '5 Sum for decimals');
+test.equals(calcForTest.calculate('22.5 / 1.5'), 15, '6 Divide decimals');
+test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, '7 Multiply decimals');
+test.equals(calcForTest.calculate('1 + 2 + 3'), 6, '8 3 operands in line');
+test.equals(calcForTest.calculate('2 + 2 * 2'), 6, '9 procedure of calculating');
+test.equals(calcForTest.calculate('2 * 2 + 2'), 6, '10 procedure of calculating * is first');
 
 
 // *** Unit tests ***
 
 const calcForUnitTests = new Calculator();
 // Test function isCharacterNumber
-test.equals(calcForUnitTests.isCharacterNumber('3'), true, 'Is a number');
-test.equals(calcForUnitTests.isCharacterNumber('0'), true, 'Is a number');
-test.equals(calcForUnitTests.isCharacterNumber('.'), true, 'Is part of the number');
+test.equals(calcForUnitTests.isCharacterNumber('3'), true, '11 Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('0'), true, '12 Is a number');
+test.equals(calcForUnitTests.isCharacterNumber('.'), true, '13 Is part of the number');
 
-test.equals(calcForUnitTests.isCharacterNumber('+'), false, 'Is part of the number');
-test.equals(calcForUnitTests.isCharacterNumber('a'), false, 'Is part of the number');
+test.equals(calcForUnitTests.isCharacterNumber('+'), false, '14 Is part of the number');
+test.equals(calcForUnitTests.isCharacterNumber('a'), false, '15 Is part of the number');
 
 //Test function isCharacterOperator
-test.equals(calcForUnitTests.isCharacterOperator('+'), true, '+ is one of the operators');
-test.equals(calcForUnitTests.isCharacterOperator('-'), true, '- is one of the operators');
-test.equals(calcForUnitTests.isCharacterOperator('*'), true, '* is one of the operators');
-test.equals(calcForUnitTests.isCharacterOperator('/'), true, '/ is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('+'), true, ' 16 + is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('-'), true, '17 - is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('*'), true, '18 * is one of the operators');
+test.equals(calcForUnitTests.isCharacterOperator('/'), true, '19 / is one of the operators');
 
-test.equals(calcForUnitTests.isCharacterOperator('3'), false, '3 is not an operator');
+test.equals(calcForUnitTests.isCharacterOperator('3'), false, '20 3 is not an operator');
 test.equals(calcForUnitTests.isCharacterOperator('0'), false, '0 is not an operator');
 test.equals(calcForUnitTests.isCharacterOperator('m'), false, 'm is not an operator');
 
