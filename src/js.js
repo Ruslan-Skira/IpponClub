@@ -18,14 +18,19 @@ class Calculator{
             if(this.isCharacterNumber(currentCharacter)){
                 this.currentOperand += currentCharacter;
             } else if(this.currentOperand){
-                this.parsed.operands.push();
+                this.parsed.operands.push(currentCharacter);
                 this.currentOperand = '';
             }
 
             if(this.isCharacterOperator(currentCharacter)){
-
-
+                this.parsed.operators.push(currentCharacter);
+                this.calculateAvailable();
+            } else if( i + 1 === string.length){
+                this.parsed.operands.push(currentCharacter);
+                this.calculateAvailable();
+                this.currentOperand = '';
             }
+
 
         }
 

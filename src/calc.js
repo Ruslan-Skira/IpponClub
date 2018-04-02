@@ -68,6 +68,7 @@ class Calculator {
         this.parsed.operands.push(result);
       }
     }
+    // TODO: create method or change already created to counting right 2*2+2, * should be first.
 }
 
 const calculator = new Calculator();
