@@ -25,7 +25,7 @@ class Calculator {
           this.currentOperand = '';
           this.calculateAvailable();
           // TODO: Show error
-        } else {console.log('Errorchick')};
+        }
       }
     }
 
