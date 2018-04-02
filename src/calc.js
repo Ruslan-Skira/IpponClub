@@ -19,8 +19,8 @@ class Calculator {
         this.currentOperand = "";
       }
       if (this.isCharacterOperator(currentCharacter)) {
-        this.parsed.operators.push(currentCharacter);
         this.calculateAvailable(); // TODO: make proper calculation
+        this.parsed.operators.push(currentCharacter);
       } else if (i + 1 === string.length) {
         // Last character in the string
         this.parsed.operands.push(this.currentOperand);
