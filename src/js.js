@@ -55,7 +55,7 @@ class Calculator{
         } else if (operator === this.operatorsList[3]){
             return arg1 / arg2;
         } else {
-            console.log('it is not from operatorsList')
+            console.log('it is not from operatorsList')ж
         }
     }
 }
