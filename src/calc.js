@@ -101,6 +101,7 @@ test.equals(calcForTest.calculate('1.1 * 2.2'), 2.42, '7 Multiply decimals');
 test.equals(calcForTest.calculate('1 + 2 + 3'), 6, '8 3 operands in line');
 test.equals(calcForTest.calculate('2 + 2 * 2'), 6, '9 procedure of calculating');
 test.equals(calcForTest.calculate('2 * 2 + 2'), 6, '10 procedure of calculating * is first');
+test.equals(calcForTest.calculate('2 * 2 + 2 * 4'), 12, 'prioritize the operators * + *');
 
 
 // *** Unit tests ***
