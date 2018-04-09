@@ -1,6 +1,35 @@
 class Calculator {
   constructor() {
-    this.operatorsList = ["+", "-", "*", "/"];
+
+    this.plus = {
+        sign: '+',
+        prioritize: 2,
+        plus: function (arg1, arg2) {
+        return arg1 + arg2;
+        }
+    };
+    this.minus = {
+        sign: '-',
+        prioritize: 2,
+        minus: function (arg1, arg2){
+          return arg1 - arg2;
+        },
+    };
+    this.multiply = {
+      sign: '*',
+        prioritize: 1,
+        multiply: function(arg1, arg2) {
+        return arg1 * arg2;
+        },
+    };
+    this.divide = {
+      sign: '/',
+        prioritize: 1,
+        divide: function (arg1, arg2) {
+        return arg1 / arg2;
+        }
+    };
+    this.operatorsList = [this.plus.sign, this.minus.sign, this.multiply.sign, this.divide.sign];
     this.parsed = {
       operators: [],
       operands: []
@@ -38,13 +67,13 @@ class Calculator {
 
   runCalculation(arg1, arg2, operator) {
     if (operator === this.operatorsList[0]) {
-      return arg1 + arg2;
+      return this.plus.plus(arg1, arg2);
     } else if (operator === this.operatorsList[1]) {
-      return arg1 - arg2;
+      return this.minus.minus(arg1, arg2);
     } else if (operator === this.operatorsList[2]) {
-      return arg1 * arg2;
+      return this.multiply.multiply(arg1, arg2);
     } else if (operator === this.operatorsList[3]) {
-      return arg1 / arg2;
+      return this.divide.divide(arg1, arg2);
     } else {
       // ToDo: call function for each operator. Describe this function in operators array for each operator - this.operatorsList[operator].run(...args)
       console.log("try to treat me?");
@@ -62,9 +91,9 @@ class Calculator {
   calculateAvailable() {
     if (this.parsed.operators.length && this.parsed.operands.length > 1) {
       const result = this.runCalculation(
-        +this.parsed.operands.pop(),
-        +this.parsed.operands.pop(),
-        this.parsed.operators.pop()
+        +this.parsed.operands.shift(),
+        +this.parsed.operands.shift(),
+        this.parsed.operators.shift()
       );
       this.parsed.operands.push(result);
     }
