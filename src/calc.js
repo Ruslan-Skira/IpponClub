@@ -3,28 +3,28 @@ class Calculator {
 
     this.plus = {
         sign: '+',
-        prioritize: 2,
+        priority: 2,
         plus: function (arg1, arg2) {
         return arg1 + arg2;
         }
     };
     this.minus = {
         sign: '-',
-        prioritize: 2,
+        priority: 2,
         minus: function (arg1, arg2){
           return arg1 - arg2;
         },
     };
     this.multiply = {
       sign: '*',
-        prioritize: 1,
+        priority: 1,
         multiply: function(arg1, arg2) {
         return arg1 * arg2;
         },
     };
     this.divide = {
       sign: '/',
-        prioritize: 1,
+        priority: 1,
         divide: function (arg1, arg2) {
         return arg1 / arg2;
         }
