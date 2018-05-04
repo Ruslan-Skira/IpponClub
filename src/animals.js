@@ -1,64 +1,42 @@
 const animalProperty = 'weight';
 
 const monkey = {
+    name: 'myney',
     color: 'red',
-    drink: 'water',
-    fingers: 5,
-    nails: 'flat',
-    vision: 'hight quality',
-    brain: 'brain with well developed cerebellum',
-    teethType: 3,
-    bodyPosition: 'could be vertical',
-    run: function () {
-    },
-    eat: function () {
-    },
-    screaming: function () {
-    },
-    collaboration: function () {
-    },
-    type: function () {
-    },
-    habitat: function () {
-    }//where they are leaving
-
+    size: '1-60sm',
+    weight: '1-60kg',
+    run: function () {},
+    eat: function () {},
+    scream: function () {},
+    collaborate: function () {},
 };
 //TODO fly
 
 const fly = {};
-    fly.kingdom = 'Animalia';
-    fly.clade = 'Euarthropoda';
-    fly.class = 'Incecta';
-    fly.order = 'Diptera';
+    fly.size = '1-4mm';
     fly.color = 'grey';
-    fly.drink = 'water';
-    fly.wings = 2;
+    fly.weight = '0.05-1gr';
+    fly.lifeCycle = '1 day';
+    fly.name = 'Cokotuha';
     fly.flight = function () {};
     fly.eat = function () {};
-    fly.lifeCycle = function () {};
-    fly.uses = function(){};
-    fly.adoptations = function(){};
-    fly.ecology = function(){};
+    fly.run = function(){};
 
 //TODO rabbit
 
 const rabbit = {};
 rabbit['color'] = 'white';
-rabbit['drink'] = 'water';
-rabbit['ears'] = 2;
-rabbit['Kindom'] = 'Animalia';
-rabbit['Phylum'] = 'Chordata';
-rabbit['Subphylum'] = 'Vertebrata';
-rabbit['Class'] = 'Mammalia';
-rabbit['Order'] = 'Lagomorpha';
-rabbit['Family'] = 'Leporidae';
-rabbit['Domestication'] = function(){};
-rabbit['Evolution'] = function(){};
-rabbit['Morphology'] = function(){};
-rabbit['Musculature'] = function(){};
+rabbit['name'] = 'Bonny';
+rabbit['weight'] = '1-4kg';
+rabbit['size'] = '25 - 50sm';
+rabbit['musculature'] = 'good';
 rabbit['jump'] = function () {};
 rabbit['eat'] = function () {};
-rabbit[animalProperty] = 3;
-console.log("test 1" + rabbit.animalProperty);
-console.log("test2 " + rabbit.weight);
+rabbit['scream'] = function () {
 
+};
+
+
+rabbit[animalProperty] = 3;
+
+//function()
